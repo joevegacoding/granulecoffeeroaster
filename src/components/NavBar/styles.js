@@ -16,10 +16,13 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     display: "flex",
     textDecoration: "none",
+    gap: 15,
   },
-  image: {
-    marginRight: "10px",
+  logo: {
+    textDecoration: "none",
+    color: "rgba(0,0,0,0.7)",
   },
+
   menuButton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {

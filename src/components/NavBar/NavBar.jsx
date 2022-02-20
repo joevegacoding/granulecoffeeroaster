@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Button } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -12,28 +13,37 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import logo from "../../assets/logo.png";
 import useStyles from "./styles";
 
-const NavBar = () => {
+const NavBar = ({ totalItems }) => {
   const classes = useStyles();
+  const location = useLocation();
+
   return (
     <>
       <AppBar position="fixed" className={classes.appBar} color="inherit">
         <Toolbar>
-          <Typography variant="h6" className={classes.title} color="inherit">
-            <img
-              src={logo}
-              alt="CoffeeComerceLogo"
-              height="25px"
-              classname={classes.image}
-            />
-            Granulé
-          </Typography>
+          <Link to="/" className={classes.logo}>
+            {/* <button> */}
+            <Typography variant="h6" className={classes.title} color="inherit">
+              <img
+                src={logo}
+                alt="CoffeeComerceLogo"
+                height="25px"
+                classname={classes.image}
+              />{" "}
+              Granulé
+            </Typography>
+            {/* </button> */}
+          </Link>
           <div className={classes.middleNav} />
+
           <div className={classes.button}>
-            <IconButton aria-label="Show Cart items">
-              <Badge badgeContent={2} color="secondary">
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
+            <Link to="/cart">
+              <IconButton aria-label="Show Cart items">
+                <Badge badgeContent={totalItems} color="secondary">
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
+            </Link>
           </div>
         </Toolbar>
       </AppBar>
