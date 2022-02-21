@@ -1,6 +1,6 @@
 import "./App.css";
 import { commerce } from "./lib/commerce";
-import { NavBar, Products, Cart } from "./components";
+import { NavBar, Products, Cart, Checkout } from "./components";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -8,6 +8,8 @@ function App() {
   //this state is to fetch our products
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
+  const [order, setOrder] = useState({});
+  const [errorMessage, setErrorMessage] = useState("");
 
   //this function fetches the products we have in the Commerce.js
   const fetchProducts = async () => {
@@ -46,6 +48,27 @@ function App() {
     setCart(cart);
   };
 
+  // After we are done with the payment, we need to refresh the cart.
+  const refreshCart = async () => {
+    const newCart = await commerce.cart.refresh();
+
+    setCart(newCart);
+  };
+
+  const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+    try {
+      const incomingOrder = await commerce.checkout.capture(
+        checkoutTokenId,
+        newOrder
+      );
+
+      setOrder(incomingOrder);
+      refreshCart();
+    } catch (error) {
+      setErrorMessage(error.data.error.message);
+    }
+  };
+
   //Similar to componentDidMount in class base component,
   // useEffect loads the function upon loading the application.
   //  That's why it is placed inside App.js itself
@@ -70,6 +93,15 @@ function App() {
               handleRemoveFromCart={handleRemoveFromCart}
               handleEmptyCart={handleEmptyCart}
               cart={cart}
+            />
+          </Route>
+          <Route exact path="/checkout">
+            <Checkout
+              cart={cart}
+              order={order}
+              onCaptureCheckout={handleCaptureCheckout}
+              onRefreshCart={refreshCart}
+              error={errorMessage}
             />
           </Route>
         </Switch>

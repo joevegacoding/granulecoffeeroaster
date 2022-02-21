@@ -26,14 +26,12 @@ const Cart = ({
   };
 
   const FilledCart = () => {
+    console.log(cart);
     return (
       <>
         <Grid container spacing={3}>
           {cart.line_items.map((item) => (
             <Grid item xs={12} sm={4} key={item.id}>
-              {/* <CartItem/> */}
-              {/* <CartItem item={item} /> */}
-              {/* <div>{item.name}</div> */}
               <CartItem
                 onUpdateCartQuantity={handleUpdateCartQuantity}
                 onRemoveFromCart={handleRemoveFromCart}
@@ -63,6 +61,9 @@ const Cart = ({
               type="button"
               variant="contained"
               color="primary"
+              component={Link}
+              to="/checkout"
+              onRefreshCart={handleEmptyCart}
             >
               Checkout
             </Button>
