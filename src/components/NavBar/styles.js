@@ -4,12 +4,15 @@ const drawerWidth = 0;
 
 export default makeStyles((theme) => ({
   appBar: {
-    boxShadow: "none",
+    display: "flex",
+    justifyContent: "center",
+    boxShadow: "2px 2px 3px 2px rgba(0,0,0,0.1)",
     borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
     },
+    height: "10vh",
   },
   title: {
     flexGrow: 1,
@@ -17,13 +20,49 @@ export default makeStyles((theme) => ({
     display: "flex",
     textDecoration: "none",
     gap: 15,
+
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: ".8rem",
+    },
   },
   logo: {
     textDecoration: "none",
     color: "rgba(0,0,0,0.7)",
   },
+  leftNav: {
+    display: "flex",
+    flexDirection: "row",
+    gap: 80,
+    [theme.breakpoints.between("sm", "md")]: {
+      gap: 30,
+    },
+    [theme.breakpoints.down("sm")]: {
+      gap: 120,
+    },
+    [theme.breakpoints.down("xs")]: {
+      gap: 60,
+    },
 
+    marginLeft: 40,
+  },
   menuButton: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    marginRight: 10,
+    gap: 70,
+    [theme.breakpoints.between("sm", "md")]: {
+      gap: 20,
+    },
+    [theme.breakpoints.down("xs")]: {
+      gap: 10,
+    },
+  },
+
+  button: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {
       display: "none",
@@ -31,6 +70,8 @@ export default makeStyles((theme) => ({
   },
   middleNav: {
     flexGrow: 1,
+    display: "flex",
+    justifyContent: "center",
   },
   search: {
     position: "relative",

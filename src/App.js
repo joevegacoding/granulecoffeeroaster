@@ -3,6 +3,9 @@ import { commerce } from "./lib/commerce";
 import { NavBar, Products, Cart, Checkout } from "./components";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import CarouselContainer from "./components/Carousel/Carousel";
+import LifeStyle from "./components/LifeStyle/LifeStyle";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   //this state is to fetch our products
@@ -85,7 +88,9 @@ function App() {
         <NavBar totalItems={cart.total_items} />
         <Switch>
           <Route exact path="/">
+            <CarouselContainer />
             <Products products={products} onAddToCart={handleAddToCart} />
+            <LifeStyle />
           </Route>
           <Route path="/cart">
             <Cart
@@ -105,6 +110,7 @@ function App() {
             />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
