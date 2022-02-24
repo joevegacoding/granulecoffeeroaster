@@ -9,6 +9,10 @@ export default makeStyles((theme) => ({
     fontFamily: "Merriweather",
     fontWeight: 500,
     marginBottom: "5%",
+
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2.5rem",
+    },
   },
   title2: {
     textAlign: "center",
@@ -17,6 +21,9 @@ export default makeStyles((theme) => ({
     fontFamily: "Merriweather",
     fontWeight: 500,
     marginTop: "15%",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2.2rem",
+    },
   },
   container: {
     margin: "10% auto 5% auto",

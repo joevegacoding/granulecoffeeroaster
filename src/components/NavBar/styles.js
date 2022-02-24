@@ -28,6 +28,7 @@ export default makeStyles((theme) => ({
       fontSize: ".8rem",
     },
   },
+
   logo: {
     textDecoration: "none",
     color: "rgba(0,0,0,0.7)",
@@ -98,6 +99,9 @@ export default makeStyles((theme) => ({
   },
   inputRoot: {
     color: "inherit",
+  },
+  cartIcon: {
+    fontSize: "2rem",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),

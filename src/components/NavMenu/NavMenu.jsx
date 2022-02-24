@@ -1,7 +1,15 @@
 import React, { useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import Logo from "../../assets/logo.png";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import PinterestIcon from "@mui/icons-material/Pinterest";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { Box } from "@material-ui/core";
+import logo from "../../assets/logo.png";
+import PersonIcon from "@mui/icons-material/Person";
+
 const Ul = styled.ul`
   list-style: none;
   display: flex;
@@ -16,12 +24,12 @@ const Ul = styled.ul`
   li,
   a,
   span {
-    padding-block: 4rem;
-    font-size: 2rem;
+    padding-block: 2rem;
+    font-size: 1.5rem;
     background: transparent;
     text-decoration: none;
     list-style: none;
-    text-align: center;
+    text-align: left;
     color: #000;
   }
 
@@ -42,10 +50,9 @@ const Ul = styled.ul`
     top: 0;
     right: 0;
     bottom: 0;
-    left: -60%;
+    left: 0%;
     height: 100vh;
-    width: 100%;
-    padding-top: 3.5rem;
+    width: 60%;
     transition: transform 0.3s ease-in-out;
 
     li {
@@ -67,32 +74,68 @@ const NavMenu = ({ open, setOpen }) => {
         activeClassName="is-active"
         to="/about"
       >
-        <span area-hidden="true">01</span> About
+        SHOP
       </Link>
       <Link
         onClick={() => setOpen(!open)}
         activeClassName="is-active"
         to="/projects"
       >
-        <span area-hidden="true">02</span> Projects
+        OUR STORY
       </Link>
       <Link
         onClick={() => setOpen(!open)}
         activeClassName="is-active"
         to="/skills"
       >
-        <span area-hidden="true">03</span> Skills
+        SERVICES
       </Link>
       <Link
         onClick={() => setOpen(!open)}
         activeClassName="is-active"
         to="/contact"
       >
-        <span area-hidden="true">04</span> Contact
+        <PersonIcon />
       </Link>
-      <li>
-        <button className="btn btn-resume">Resume</button>
-      </li>
+      <Box
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: "70%",
+        }}
+      >
+        <Link href="#" color="inherit">
+          <FacebookIcon />
+        </Link>
+        <Link href="#" color="inherit">
+          <InstagramIcon />
+        </Link>
+        <Link href="#" color="inherit">
+          <TwitterIcon />
+        </Link>
+        <Link href="#" color="inherit">
+          <PinterestIcon />
+        </Link>
+        <Link href="#" color="inherit">
+          <LinkedInIcon />
+        </Link>
+      </Box>
+      <Link to="/">
+        <img
+          src={logo}
+          alt="CoffeeComerceLogo"
+          // height="50%"
+          width="110px"
+          style={{
+            display: "flex",
+            width: "40%",
+            height: "auto",
+            // justifyContent: "center",
+            alignItems: "center",
+          }}
+        />
+      </Link>
     </Ul>
   );
 };

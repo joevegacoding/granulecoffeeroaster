@@ -66,7 +66,7 @@ const NavBar = ({ totalItems }) => {
             <Link to="/cart">
               <IconButton aria-label="Show Cart items">
                 <Badge badgeContent={totalItems} color="secondary">
-                  <ShoppingCartIcon />
+                  <ShoppingCartIcon style={{ fontSize: "1.6rem" }} />
                 </Badge>
               </IconButton>
             </Link>
