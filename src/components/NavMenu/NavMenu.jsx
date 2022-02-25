@@ -69,32 +69,16 @@ const Ul = styled.ul`
 const NavMenu = ({ open, setOpen }) => {
   return (
     <Ul className="menu-collapse" open={open}>
-      <Link
-        onClick={() => setOpen(!open)}
-        activeClassName="is-active"
-        to="/about"
-      >
+      <Link onClick={() => setOpen(!open)} activeClassName="is-active">
         SHOP
       </Link>
-      <Link
-        onClick={() => setOpen(!open)}
-        activeClassName="is-active"
-        to="/projects"
-      >
+      <Link onClick={() => setOpen(!open)} activeClassName="is-active">
         OUR STORY
       </Link>
-      <Link
-        onClick={() => setOpen(!open)}
-        activeClassName="is-active"
-        to="/skills"
-      >
+      <Link onClick={() => setOpen(!open)} activeClassName="is-active">
         SERVICES
       </Link>
-      <Link
-        onClick={() => setOpen(!open)}
-        activeClassName="is-active"
-        to="/contact"
-      >
+      <Link onClick={() => setOpen(!open)} activeClassName="is-active">
         <PersonIcon />
       </Link>
       <Box

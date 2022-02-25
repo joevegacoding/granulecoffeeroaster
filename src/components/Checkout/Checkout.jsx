@@ -7,11 +7,11 @@ import {
   StepLabel,
   Typography,
   CircularProgress,
-  Divider,
 } from "@material-ui/core";
 import useStyles from "./styles";
 import AddressForm from "../CheckoutForm/AddressForm";
 import PaymentForm from "../CheckoutForm/PaymentForm";
+
 const steps = ["Shipping Address", "Payment Details"];
 
 const Checkout = ({ cart, order, onCaptureCheckout, error, onRefreshCart }) => {
@@ -42,14 +42,18 @@ const Checkout = ({ cart, order, onCaptureCheckout, error, onRefreshCart }) => {
     setShippingData(data);
     nextStep();
   };
-  const Confirmation = () => <div>Confirmation</div>;
+  const Confirmation = () => (
+    <div>
+      Order Completed! An email has been sent with your order information
+    </div>
+  );
 
   if (!checkoutToken) {
     return (
       //to add an animation here for the loading page.
-      <div>
-        <Typography variant="h1" className={classes.title}>
-          Loading...
+      <div className={classes.loadingContainer}>
+        <Typography variant="h1" className={classes.titleLoading}>
+          <CircularProgress color="inherit" />
         </Typography>
       </div>
     );

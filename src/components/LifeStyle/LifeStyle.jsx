@@ -3,6 +3,8 @@ import { Grid, Typography, Button } from "@material-ui/core";
 import Item from "./itemStyles";
 import useStyles from "./styles";
 import BlendStyle from "./BlendStyle/BlendStyle";
+import { motion } from "framer-motion";
+
 const LifeStyle = () => {
   const classes = useStyles();
   return (
@@ -27,6 +29,7 @@ const LifeStyle = () => {
             <Typography className={classes.textTitle} variant="h2">
               A Morning Essential
             </Typography>
+
             <Typography className={classes.textParagraph} variant="p">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
               ipsam assumenda corporis minima fuga iusto? Asperiores

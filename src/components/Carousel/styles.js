@@ -4,6 +4,11 @@ export default makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   carousel: {
     marginTop: 10,
+    maxHeight: "100%",
+
+    [theme.breakpoints.down("sm")]: {
+      marginTop: 60,
+    },
   },
   carouselItem: {
     left: 20,
@@ -22,9 +27,31 @@ export default makeStyles((theme) => ({
     color: "black",
     textTransform: "uppercase",
     fontFamily: "Secular One",
+    [theme.breakpoints.down("sm")]: {
+      top: "20%",
+    },
+  },
+  title: {
+    fontFamily: "Secular One",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.5rem",
+    },
+  },
+  button: {
+    textDecoration: "none",
+    color: "black",
+    fontSize: "1.5rem",
+    color: "gray",
+
+    [theme.breakpoints.down("md")]: {
+      fontSize: ".9rem",
+    },
   },
   smallText: {
     marginBlock: "2.5%",
-    fontSize: "max(17px)",
+    fontSize: "1.3rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "0.8rem",
+    },
   },
 }));

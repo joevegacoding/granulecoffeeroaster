@@ -49,4 +49,15 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
+  titleLoading: {
+    marginTop: "50%",
+    height: "100%",
+  },
+  loadingContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBlock: "auto",
+    height: "90vh",
+  },
 }));

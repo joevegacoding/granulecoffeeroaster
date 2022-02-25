@@ -1,5 +1,11 @@
 import React from "react";
-import { Container, Typography, Button, Grid } from "@material-ui/core";
+import {
+  Container,
+  Typography,
+  Button,
+  Grid,
+  CircularProgress,
+} from "@material-ui/core";
 import useStyles from "./styles";
 
 import CartItem from "../CartItem/CartItem";
@@ -17,12 +23,15 @@ const Cart = ({
 
   const EmptyCart = () => {
     return (
-      <Typography variatn="subtitles">
-        Your Car is empty.
-        <Link className={classes.link} to="/">
-          Continue Shopping
-        </Link>
-      </Typography>
+      <div className={classes.continueMessageContainer}>
+        <Typography className={classes.subTitle} variatn="subtitles">
+          Your Car is empty.
+          <Link className={classes.link} to="/">
+            {" "}
+            Continue Shopping
+          </Link>
+        </Typography>
+      </div>
     );
   };
 
@@ -30,9 +39,10 @@ const Cart = ({
     console.log(cart);
     return (
       <>
-        <Grid container spacing={3}>
+        <Grid className={classes.container} container spacing={3}>
+          <Typography className={classes.title}>Shopping Cart</Typography>
           {cart.line_items.map((item) => (
-            <Grid item xs={12} sm={4} key={item.id}>
+            <Grid item xs={12} sm={12} lg={12} key={item.id}>
               <CartItem
                 onUpdateCartQuantity={handleUpdateCartQuantity}
                 onRemoveFromCart={handleRemoveFromCart}
@@ -42,9 +52,11 @@ const Cart = ({
           ))}
         </Grid>
         <div className={classes.cartDetails}>
-          <Typography variant="h4">
-            Subtotal: {cart.subtotal.formatted_with_symbol}
-          </Typography>
+          <div>
+            <Typography className={classes.subTotal} variant="h4">
+              Subtotal: {cart.subtotal.formatted_with_symbol}
+            </Typography>
+          </div>
           <div>
             <Button
               className={classes.emptyButton}
@@ -61,7 +73,6 @@ const Cart = ({
               size="large"
               type="button"
               variant="contained"
-              color="primary"
               component={Link}
               to="/checkout"
               onRefreshCart={handleEmptyCart}
@@ -76,9 +87,9 @@ const Cart = ({
   if (!cart.line_items)
     return (
       //to add an animation here for the loading page.
-      <div>
+      <div className={classes.loadingContainer}>
         <Typography variant="h1" className={classes.title}>
-          Loading...
+          <CircularProgress color="inherit" />
         </Typography>
       </div>
     );

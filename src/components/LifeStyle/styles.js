@@ -28,6 +28,7 @@ export default makeStyles((theme) => ({
   container: {
     margin: "10% auto 5% auto",
     width: "1200px",
+
     [theme.breakpoints.down("md")]: {
       width: "1000px",
     },
@@ -176,9 +177,6 @@ export default makeStyles((theme) => ({
     boxShadow: "inset 0 0 0 0 black",
     transition: "ease-out 0.5s",
 
-    "&::after": {
-      background: "green",
-    },
     "&:hover": {
       // backgroundColor: "pink",
       boxShadow: "inset 0 -100px 0 0 black",

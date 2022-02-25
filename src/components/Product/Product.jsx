@@ -6,9 +6,11 @@ import {
   CardActions,
   Typography,
   IconButton,
+  Button,
 } from "@material-ui/core";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import useStyles from "./styles";
+import { motion } from "framer-motion";
 
 const Product = ({ product, onAddToCart }) => {
   const classes = useStyles();
@@ -17,33 +19,44 @@ const Product = ({ product, onAddToCart }) => {
   return (
     <div>
       <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image={product.image.url}
-          title={product.name}
-        />
-        <CardContent>
+        <motion.div whileHover={{ scale: 1.02 }}>
+          <CardMedia
+            className={classes.media}
+            image={product.image.url}
+            title={product.name}
+            component="img"
+          />
+        </motion.div>
+        <CardContent style={{ backgroundColor: "rgba(0,0,0,0)" }}>
           <div className={classes.cardContent}>
-            <Typography variant="h5" gutterBottom>
+            <Typography
+              style={{ fontFamily: "Merriweather" }}
+              variant="h5"
+              gutterBottom
+            >
               {product.name}
             </Typography>
-            <Typography variant="h5">
+            <Typography style={{ fontFamily: "Merriweather" }} variant="h5">
               {product.price.formatted_with_symbol}
             </Typography>
           </div>
+
           <Typography
             dangerouslySetInnerHTML={{ __html: product.description }}
-            variant="body2"
+            variant="body1"
             color="textSecondary"
+            style={{ fontFamily: "Merriweather", marginTop: "1rem" }}
           />
         </CardContent>
         <CardActions disableSpacing className={classes.cardActions}>
-          <IconButton
+          <Button
+            className={classes.button}
             aria-label="Add To Card"
             onClick={() => onAddToCart(product.id, 1)}
           >
-            <AddShoppingCartIcon />
-          </IconButton>
+            Add To Cart
+            {/* <AddShoppingCartIcon /> */}
+          </Button>
         </CardActions>
       </Card>
     </div>

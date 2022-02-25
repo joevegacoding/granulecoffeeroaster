@@ -2,18 +2,36 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(() => ({
   card: {
-    maxWidth: "100%",
+    width: "300px",
+    maxHeight: "100%",
+    border: "none",
+    boxShadow: "none",
   },
   media: {
-    height: 0,
-    paddingTop: "56.25%", // 16:9
+    height: "80%",
+    width: "80%",
+    objectFit: "cover",
+    pointerEvents: "none",
+  },
+  button: {
+    border: "1px solid black",
+    boxShadow: "inset 0 0 0 0 black",
+    transition: "ease-out 0.5s",
+
+    "&:hover": {
+      // backgroundColor: "pink",
+      boxShadow: "inset 0 -100px 0 0 black",
+      color: "white",
+    },
   },
   cardActions: {
     display: "flex",
-    justifyContent: "flex-end",
+    justifyContent: "flex-start",
+    textAlign: "center",
   },
   cardContent: {
     display: "flex",
-    justifyContent: "space-between",
+    flexDirection: "column",
+    justifyContent: "center",
   },
 }));
