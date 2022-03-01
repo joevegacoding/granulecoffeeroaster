@@ -4,7 +4,7 @@
 
 Granulé coffee roaster is a complete e-commerce application built with React.js. The website allows you to purchase your favorite and pay with your preferred method of payment.
 
-## 🚀 [Live View](https://friendly-spence-49b5e1.netlify.app/)
+## 🚀 [Live View](https://naughty-ptolemy-c37ef5.netlify.app/)
 
 ## Technologies
 
