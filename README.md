@@ -2,7 +2,10 @@
 
 # Basic Overview
 
-Granulé coffee roaster is a complete e-commerce application built with React.js. The website allows you to purchase your favorite and pay with your preferred method of payment.
+Granulé Coffee is a React.js-based e-commerce application. You can discover and order your favourite coffee roast and pay with your preferred way of payment.
+
+### Note
+For testing and security puporses, the payment method is in test mode.
 
 ## 🚀 [Live View](https://naughty-ptolemy-c37ef5.netlify.app/)
 
