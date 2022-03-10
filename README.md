@@ -11,7 +11,7 @@ Granulé coffee roaster is a complete e-commerce application built with React.js
 - [Commerce.js](https://commercejs.com). (To manage orders and products) 
 - [Stripe](https://stripe.com/docs/stripe-js/react) (To manage payment)
 - [Material UI](https://mui.com) (To Build UI components)
--[Framer Motion](https://www.framer.com/motion/) (To animate certain components)
+- [Framer Motion](https://www.framer.com/motion/) (To animate certain components)
 
 ## Screenshots
 
